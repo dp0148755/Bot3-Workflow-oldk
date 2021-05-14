@@ -1,10 +1,14 @@
-name: Bot3
+name: Bot Environment
 
-on: push
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: 'README.md'
+  workflow_dispatch:
 
 env:
+  TYPE: build
   TZ: Asia/Dhaka
-
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -96,9 +100,10 @@ jobs:
               expect -c "
               spawn git push -f
               expect \"Username\"
-              send \"Velosh\r\"
+              send \"${{ secrets.GH_USER }}\r\"
               expect \"Password\"
-              send \"${{ secrets.PASSWORD }}\r\"
+              send \"${{ secrets.GH_PASS }}\r\"
               expect \"master -> master\"
               set timeout -10
               interact"
+              git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
