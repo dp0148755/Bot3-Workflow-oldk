@@ -28,7 +28,7 @@ jobs:
 
        - name: Setup git Environment
          run: |
-              git config --global user.name "smpriyo"
+              git config --global user.name "smpriiiyo"
               git config --global user.email "priiiyoplus@gmail.com"
               git config --global pull.rebase false
 
@@ -68,7 +68,7 @@ jobs:
          continue-on-error: true
          timeout-minutes: 1
          run: |
-              git clone --recurse-submodules https://github.com/PriiiyoGSIs/PriiiyoGSIs-ErfanGSIs ErfanGSIs --depth 1
+              git clone --recurse-submodules https://github.com/PriiiyoGSIs/PriiiyoGSIs ErfanGSIs --depth 1
               pip3 install wheel setuptools
               pip3 install backports.lzma docopt zstandard bsdiff4 protobuf pycrypto
               sudo pip3 install --upgrade protobuf
