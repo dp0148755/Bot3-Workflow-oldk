@@ -42,18 +42,19 @@ jobs:
               git clone https://github.com/PriiiyoGSIs/Bot3 Bot3
               mkdir configs && cd configs
               touch configs.prop
-              echo "bot-token=${{ secrets.TOKEN }}" >> configs.prop
-              echo "bot-username=PriiiyoGSIs_Bot" >> configs.prop
-              echo "bot-master=1032152179" >> configs.prop
-              echo "privateChat=-1001401549638" >> configs.prop
-              echo "requestChat=-1001212338973" >> configs.prop
-              echo "bot-sf-pass=${{ secrets.SF_PASS }}" >> sf-creds.prop
-              echo "bot-sf-proj=PriyoGSIs" >> sf-creds.prop
-              echo "bot-sf-user=smpriyo" >> sf-creds.prop
-              echo "bot-announcement-id=-1001405823755" >> sf-creds.prop
-              echo "bot-sf-host=frs.sourceforge.net" >> sf-creds.prop
-              echo "bot-send-announcement=true" >> sf-creds.prop
-              echo '["783675636"]' >> configs/allowed2port.json
+              echo "bot-token=${{ secrets.BOTKEY }}" >> "configs.prop"
+              echo "bot-username=${{ secrets.BOTUN }}" >> "configs.prop"
+              echo "bot-master=${{ secrets.USERKEY }}" >> "configs.prop"
+              echo "privateChat=-1001401549638" >> "configs.prop"
+              echo "requestChat=-1001212338973" >> "configs.prop"
+              touch sf-creds.prop
+              echo "bot-sf-pass=${{ secrets.SF_PASS }}" >> "sf-creds.prop"
+              echo "bot-sf-proj=${{ secrets.PROJECT }}" >> "sf-creds.prop"
+              echo "bot-sf-user=${{ secrets.SF_USER }}" >> "sf-creds.prop"
+              echo "bot-announcement-id=-1001405823755" >> "sf-creds.prop"
+              echo "bot-sf-host=frs.sourceforge.net" >> "sf-creds.prop"
+              echo "bot-send-announcement=true" >> "sf-creds.prop"
+              echo '["783675636"]' >> "configs/allowed2port.json"
 
        - name: Clone workflow
          continue-on-error: true
