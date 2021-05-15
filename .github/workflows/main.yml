@@ -1,14 +1,10 @@
-name: PriiiyoGSIs Bot Environment
+name: PriiiyoGSIs Bot3
 
-on:
-  push:
-    branches: [ main ]
-    paths-ignore: 'README.md'
-  workflow_dispatch:
+on: push
 
 env:
-  TYPE: build
   TZ: Asia/Dhaka
+  TOKEN: ${{ secrets.TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -47,6 +43,7 @@ jobs:
               echo "bot-master=${{ secrets.USERKEY }}" >> "configs.prop"
               echo "privateChat=-1001401549638" >> "configs.prop"
               echo "requestChat=-1001212338973" >> "configs.prop"
+              echo "publicChannel=PriiiyoGSI" >> "configs.prop"
               touch sf-creds.prop
               echo "bot-sf-pass=${{ secrets.SF_PASS }}" >> "sf-creds.prop"
               echo "bot-sf-proj=${{ secrets.PROJECT }}" >> "sf-creds.prop"
@@ -71,9 +68,9 @@ jobs:
 
        - name: Setup Erfan GSIs Tool
          continue-on-error: true
-         timeout-minutes: 1
+         timeout-minutes: 2
          run: |
-              git clone --recurse-submodules https://github.com/smpriiiyo/PriiiyoGSIs ErfanGSIs --depth 1
+              git clone --recurse-submodules --depth 1 https://${TOKEN}@github.com/smpriiiyo/PriiiyoGSIs ErfanGSIs
               pip3 install wheel setuptools
               pip3 install backports.lzma docopt zstandard bsdiff4 protobuf pycrypto
               sudo pip3 install --upgrade protobuf
@@ -107,4 +104,3 @@ jobs:
               expect \"master -> master\"
               set timeout -10
               interact"
-              git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
