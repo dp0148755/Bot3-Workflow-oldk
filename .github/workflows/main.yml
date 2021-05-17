@@ -1,4 +1,4 @@
-name: PriiiyoGSIs Bot3
+name: PriiiiyoGSIs Bot3
 
 on:
   workflow_dispatch:
@@ -29,14 +29,14 @@ jobs:
 
        - name: Setup git Environment
          run: |
-              git config --global user.name "smpriiiyo"
+              git config --global user.name "priiiiyo"
               git config --global user.email "priiyoooo@gmail.com"
               git config --global pull.rebase false
 
        - name: Setup Bobot Environment
          continue-on-error: true
          run: |
-              git clone https://github.com/PriiiyoGSIs/Bot3 Bot3
+              git clone https://github.com/PriiiiyoGSIs/Bot3 Bot3
               mkdir configs && cd configs
               touch configs.prop
               echo "bot-token=${{ secrets.BOTKEY }}" >> "configs.prop"
@@ -44,7 +44,7 @@ jobs:
               echo "bot-master=${{ secrets.USERKEY }}" >> "configs.prop"
               echo "privateChat=-1001401549638" >> "configs.prop"
               echo "requestChat=-1001212338973" >> "configs.prop"
-              echo "publicChannel=PriiiyoGSI" >> "configs.prop"
+              echo "publicChannel=PriiiiyoGSI" >> "configs.prop"
               touch sf-creds.prop
               echo "bot-sf-pass=${{ secrets.SF_PASS }}" >> "sf-creds.prop"
               echo "bot-sf-proj=${{ secrets.PROJECT }}" >> "sf-creds.prop"
@@ -58,7 +58,7 @@ jobs:
          continue-on-error: true
          run: |
               mkdir tmp && cd tmp
-              git clone https://github.com/PriiiyoGSIs/Bot3-Workflow Bobot
+              git clone https://github.com/PriiiiyoGSIs/Bot3-Workflow Bobot
 
        - name: Install OpenJDK 8 & other tools/packages
          continue-on-error: true
@@ -71,7 +71,7 @@ jobs:
          continue-on-error: true
          timeout-minutes: 2
          run: |
-              git clone --recurse-submodules --depth 1 https://${TOKEN}@github.com/smpriiiyo/PriiiyoGSIs ErfanGSIs
+              git clone --recurse-submodules --depth 1 https://${TOKEN}@github.com/priiiiyo/PriiiiyoGSIs ErfanGSIs
               pip3 install wheel setuptools
               pip3 install backports.lzma docopt zstandard bsdiff4 protobuf pycrypto
               sudo pip3 install --upgrade protobuf
