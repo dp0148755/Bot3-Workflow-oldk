@@ -86,9 +86,9 @@ jobs:
               sudo apt-get install ca-certificates-java -y
               cd Bot3
               ./gradlew shadowJar
-              cd ../; mv Bot3/build/libs/*.jar BoboBot.jar
+              cd ../; mv Bot3/build/libs/*.jar BoboBot-1-all.jar
               rm -rf Bot3
-              sudo java -jar BoboBot.jar
+              sudo java -jar BoboBot-1-all.jar
 
        - name: Re-run Bot3 workflow
          continue-on-error: true
