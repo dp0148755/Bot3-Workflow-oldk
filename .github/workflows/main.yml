@@ -36,7 +36,7 @@ jobs:
        - name: Setup Bobot Environment
          continue-on-error: true
          run: |
-              git clone https://github.com/PriiiiyoGSIs/Bot3-Orginal -b sf; cd sf
+              git clone https://github.com/PriiiiyoGSIs/Bot3-Orginal -b sf
               mkdir configs && cd configs
               touch configs.prop
               echo "bot-token=${{ secrets.BOTKEY }}" >> "configs.prop"
