@@ -1,4 +1,4 @@
-name: PriiiiyoGSIs Bot3
+name: DipeshGSIs Bot3
 
 on:
   workflow_dispatch:
@@ -29,14 +29,14 @@ jobs:
 
        - name: Setup git Environment
          run: |
-              git config --global user.name "priiiiyo"
-              git config --global user.email "priiyoooo@gmail.com"
+              git config --global user.name "daksh1684"
+              git config --global user.email "dipeshtech@protonmail.com"
               git config --global pull.rebase false
 
        - name: Setup Bobot Environment
          continue-on-error: true
          run: |
-              git clone https://github.com/PriiiiyoGSIs/Bot3-Orginal -b sf
+              git clone https://github.com/DipeshGSI-private/Bot3-Dipesh -b sf
               mkdir configs && cd configs
               touch configs.prop
               echo "bot-token=${{ secrets.BOTKEY }}" >> "configs.prop"
@@ -44,12 +44,12 @@ jobs:
               echo "bot-master=${{ secrets.USERKEY }}" >> "configs.prop"
               echo "privateChat=-1001401549638" >> "configs.prop"
               echo "requestChat=-1001212338973" >> "configs.prop"
-              echo "publicChannel=PriiiiyoGSI" >> "configs.prop"
+              echo "publicChannel=dpgsi_updates" >> "configs.prop"
               touch sf-creds.prop
               echo "bot-sf-pass=${{ secrets.SF_PASS }}" >> "sf-creds.prop"
               echo "bot-sf-proj=${{ secrets.PROJECT }}" >> "sf-creds.prop"
               echo "bot-sf-user=${{ secrets.SF_USER }}" >> "sf-creds.prop"
-              echo "bot-announcement-id=-1001405823755" >> "sf-creds.prop"
+              echo "bot-announcement-id=-1001616595070" >> "sf-creds.prop"
               echo "bot-sf-host=frs.sourceforge.net" >> "sf-creds.prop"
               echo "bot-send-announcement=true" >> "sf-creds.prop"
               echo '["783675636"]' >> "configs/allowed2port.json"
@@ -58,7 +58,7 @@ jobs:
          continue-on-error: true
          run: |
               mkdir tmp && cd tmp
-              git clone https://github.com/PriiiiyoGSIs/Bot3-Workflow Bobot
+              git clone https://github.com/DipeshGSI-private/Bot3-Workflow Bobot
 
        - name: Install OpenJDK 8 & other tools/packages
          continue-on-error: true
@@ -71,7 +71,7 @@ jobs:
          continue-on-error: true
          timeout-minutes: 2
          run: |
-              git clone --recurse-submodules --depth 1 https://${TOKEN}@github.com/priiiiyo/PriiiiyoGSIs ErfanGSIs
+              git clone --recurse-submodules --depth 1 https://github.com/erfanoabdi/ErfanGSIs ErfanGSIs
               pip3 install wheel setuptools
               pip3 install backports.lzma docopt zstandard bsdiff4 protobuf pycrypto
               sudo pip3 install --upgrade protobuf
